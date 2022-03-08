@@ -113,7 +113,7 @@ module.exports = {
 
 - Criar pasta src e mover pasta pages para dentro dentro.
 
-## Stitches:
+## Stitches
 
 Instalação:
 
@@ -182,7 +182,21 @@ export default class Document extends NextDocument {
 }
 ```
 
-## Componentes Next:
+## Radix
+
+Intalação Radix Colors
+
+```bash
+npm install @radix-ui/colors
+```
+
+Intalação Radix Icons
+
+```bash
+npm install @radix-ui/react-icons
+```
+
+## Componentes NextJS
 
 Componentes adicionados neste projeto
 
