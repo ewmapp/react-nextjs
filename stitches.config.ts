@@ -30,3 +30,10 @@ export const {
 })
 
 export type CSS = Stitches.CSS<typeof config>
+
+export const darkTheme = createTheme('dark-theme', {
+  colors: {
+    hiContrast: 'white',
+    loContrast: 'hsl(206,10%,5%)'
+  }
+})

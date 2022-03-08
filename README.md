@@ -156,6 +156,13 @@ export const {
 })
 
 export type CSS = Stitches.CSS<typeof config>
+
+export const darkTheme = createTheme('dark-theme', {
+  colors: {
+    hiContrast: 'white',
+    loContrast: 'hsl(206,10%,5%)'
+  }
+})
 ```
 
 Configuração SSR, criar arquivo `_document.tsx` dentro da pasta `/pages`
@@ -196,11 +203,50 @@ Intalação Radix Icons
 npm install @radix-ui/react-icons
 ```
 
-## Componentes NextJS
+### Next-themes and Stitches DarkTheme
 
-Componentes adicionados neste projeto
+Instalação
 
-### next-images
+```bash
+npm install next-themes
+```
+
+Configuração
+
+```bash
+import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'next-themes'
+import { darkTheme, globalCss } from '../../stitches.config'
+
+const globalStyles = globalCss({
+  html: {
+    overflowX: 'hidden'
+  },
+  body: {
+    margin: 0,
+    backgroundColor: '$loContrast'
+  }
+})
+
+function MyApp({ Component, pageProps }: AppProps) {
+  globalStyles()
+
+  return (
+    <ThemeProvider
+      disableTransitionOnChange
+      attribute="class"
+      value={{ light: 'light-theme', dark: darkTheme.className }}
+      defaultTheme="system"
+    >
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
+}
+
+export default MyApp
+```
+
+## next-images
 
 Instalação:
 
