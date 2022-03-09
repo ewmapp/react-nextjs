@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { styled } from '../../stitches.config'
+import { useState, useEffect } from 'react'
 
 const Text = styled('p', {
   fontFamily: '$system',
@@ -21,10 +22,19 @@ const Text = styled('p', {
 })
 
 const Home: NextPage = () => {
+  const [mounted, setMounted] = useState(false)
+
+  // When mounted on client, now we can show the UI
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
+
   return (
-    <Text as="h1" size="3">
-      Hello, from Stitches.
-    </Text>
+    <div>
+      <Text as="h1" size="3">
+        Hello, from Stitches.
+      </Text>
+    </div>
   )
 }
 

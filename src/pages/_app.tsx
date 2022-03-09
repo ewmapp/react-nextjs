@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import { darkTheme, globalCss } from '../../stitches.config'
-import { ThemeChanger } from '../components/theme-switch'
 
 const globalStyles = globalCss({
   html: {
@@ -23,7 +22,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       value={{ light: 'light', dark: darkTheme }}
       defaultTheme="system"
     >
-      <ThemeChanger />
       <Component {...pageProps} />
     </ThemeProvider>
   )
