@@ -23,8 +23,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       value={{ light: 'light', dark: darkTheme }}
       defaultTheme="system"
     >
-      <Component {...pageProps} />
       <ThemeChanger />
+      <Component {...pageProps} />
     </ThemeProvider>
   )
 }
